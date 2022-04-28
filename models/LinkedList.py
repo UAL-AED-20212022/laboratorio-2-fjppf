@@ -11,10 +11,10 @@ class LinkedList:
         else:
             n =  self.start_node
             while n is not None:
-                print(n.item, " ")
+                print(n.item)
                 n = n.ref
 
-    def insert_at_end(self, data):
+    def insert_at_end(self, data): #inserir no fim "RPF"
         new_node = Node(data)
 
         if self.start_node is None:
@@ -25,7 +25,7 @@ class LinkedList:
             n = n.ref
         n.ref = new_node
     
-    def insert_at_start(self, data):
+    def insert_at_start(self, data): #inserir no incio "RPI"
         new_node = Node(data)
         new_node.ref = self.start_node
         self.start_node = new_node
@@ -44,7 +44,6 @@ class LinkedList:
             new_node = Node(data)
             new_node.ref = n.ref
             n.ref = new_node
-
     def insert_before_item(self, x, data):
         if self.start_node is None:
             print("List has no element")
@@ -69,7 +68,7 @@ class LinkedList:
         else:
             new_node = Node(data)
             new_node.ref = n.ref
-            n.ref = new_node
+            new_node.ref = new_node
 
     def insert_at_index(self, index, data):
         if index == 1:
@@ -80,7 +79,7 @@ class LinkedList:
         n = self.start_node
         while i < index-1 and n is not None:
             n = n.ref
-            i = i + 1
+            i = i + 10
         if n is None:
             print("Index out of bound")
         else:
@@ -110,7 +109,7 @@ class LinkedList:
                 print("Item found")
                 return True
             n = n.ref
-        print("item bot found")
+        print("item not found")
         return False
 
 
@@ -146,7 +145,6 @@ class LinkedList:
 
         else:
             n.ref = n.ref.ref
-            
     def reverse_linkedlist(self):
         prev = None
         n = self.start_node
@@ -157,22 +155,7 @@ class LinkedList:
             n = next
 
         self.start_node = prev
-    
-    def get_last_node(self): 
-        #retorna o último elemento da lista
-        n = 1
-        temp = self.start_node
-        length = 0
-        while temp is not None:
-            temp = temp.ref
-            length += 1
-
-        if n > length: 
-            return
-        temp = self.start_node
-        for i in range(0, length - n):
-            temp = temp.ref
-        return temp.item
+            
 
 
 
